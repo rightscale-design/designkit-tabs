@@ -1,0 +1,48 @@
+{
+  "name": "designkit-tabs",
+  "version": "1.0.0",
+  "description": "Sass module for tabs used at RightScale.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rightscale-design/designkit-tabs.git"
+  },
+  "author": {
+    "name": "Jason Melgoza",
+    "email": "jason@rightscale.com"
+  },
+  "style": "dist/designkit-tabs.css",
+  "files": [
+    "src/",
+    "dist/"
+  ],
+  "keywords": [
+    "css",
+    "scss",
+    "Sass"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/rightscale-design/designkit-tabs#readme",
+  "devDependencies": {
+    "autoprefixer": "^6.4.0",
+    "csso": "^3.1.1",
+    "node-sass": "^4.5.3",
+    "nodemon": "^1.10.0",
+    "npm-run-all": "^2.3.0",
+    "serve": "^6.0.6"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "scripts": {
+    "start": "npm run build:serve",
+    "serve": "serve docs/ -o",
+    "watch": "nodemon -e scss -x 'npm run build:all'",
+    "build:scss": "node ./scripts/scss.js",
+    "build:prefix": "node ./scripts/postcss.js",
+    "build:minify": "node ./scripts/minify.js",
+    "build:docs": "node ./scripts/docs.js",
+    "build:all": "npm run build:scss && npm run build:prefix && npm run build:minify && npm run build:docs",
+    "build:serve": "run-p watch serve"
+  }
+}
